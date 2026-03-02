@@ -83,11 +83,12 @@ export default function App() {
     const blob = new Blob([csvRows.join("\n")], {
       type: "text/csv"
     });
-
+    
+    const currentDate = new Date();
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "meal-orders.csv";
+    link.download = `meal-orders(${currentDate.toLocaleDateString()}).csv`;
     link.click();
     URL.revokeObjectURL(url);
   };
