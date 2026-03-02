@@ -75,7 +75,7 @@ export default function App() {
           row.delivery,
           row.lunch,
           row.family,
-          rowTotal
+          `$${rowTotal}`
         ].join(",")
       );
     });
