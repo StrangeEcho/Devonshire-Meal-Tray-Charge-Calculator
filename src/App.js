@@ -11,6 +11,8 @@ export default function App() {
     document.title = "𝓜𝓮𝓪𝓵 𝓒𝓪𝓵𝓬𝓾𝓵𝓪𝓽𝓸𝓻";
   }, [])
 
+  const [lastToIncrement, setLastToIncrement] = useState(""); 
+
   const [rows, setRows] = useState([
     { name: "", delivery: 0, lunch: 0, family: 0 }
   ]);
@@ -25,6 +27,8 @@ export default function App() {
     const newRows = [...rows];
     newRows[index][field] += 1;
     setRows(newRows);
+    
+    setLastToIncrement(newRows[index]["name"])
   };
 
   const decrement = (index, field) => {
@@ -195,13 +199,14 @@ export default function App() {
             📄 Export to CSV
           </button>
         </div>
-
+        
         <h3 className="grand-total">
           Grand Total: ${grandTotal.toFixed(2)}
         </h3>
       </div>
       <div>
         <p style={{textAlign: 'center'}}>ruben was here lolololol </p>
+        <p style={{textAlign: 'center'}}>Last to Increment: <b>{lastToIncrement}</b></p>
       </div>
     </div>
   );
